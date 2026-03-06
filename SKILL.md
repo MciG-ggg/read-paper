@@ -26,8 +26,30 @@ Use this skill when:
 ## Quick Workflow
 
 ```
-Input → Detect Type → Process → Summarize → Output
+Input → Detect Type → Process → Tag Management → Summarize → Obsidian Output
 ```
+
+### Tag Management (Required)
+
+Before generating summary, **you must manage tags**:
+
+1. **Generate candidate tags** from paper content (2-4 tags)
+2. **Check existing tags** using claude-mem:
+   ```
+   Use: claude-mem:mem-search
+   Query: {candidate_tag}
+   Project: paper-tags
+   ```
+3. **Match or create**:
+   - If similar tag exists → use existing
+   - If new → create and save to claude-mem after
+
+4. **Save new tags** to claude-mem:
+   ```
+   Use: claude-mem:save_memory
+   Text: "New paper tag: {tag} - {description}"
+   Project: paper-tags
+   ```
 
 ### Step 1: Detect Input Type
 
@@ -47,9 +69,8 @@ Then follow the text extraction workflow.
 
 ### Step 3: Generate Summary
 
-See [summarization.md](references/summarization.md) for summary guidelines.
 
-Output to `./knowledge/summary_{tag}.md` in local project directory.
+Output to `~/knowledge/summary_{tag}.md` in Obsidian-native format (frontmatter + callouts).
 
 ## Detailed Guides
 
@@ -59,11 +80,15 @@ For detailed processing instructions, see:
 |-------|---------|
 | [arxiv.md](references/arxiv.md) | arXiv TeX source download, parsing, analysis |
 | [pdf.md](references/pdf.md) | PDF text extraction, table extraction |
-| [summarization.md](references/summarization.md) | Summary format, tag selection, quality guidelines |
+| [summarization.md](references/summarization.md) | Obsidian-native summary format (frontmatter + callouts), tag selection, quality guidelines |
+| [obsidian-output.md](references/obsidian-output.md) | Obsidian format, tag management, claude-mem integration |
+
 
 ## Key Principles
 
 1. **Cache downloaded content**: Store in `~/.cache/nanochat/knowledge/{paper_id}/`
-2. **Use local output directory**: `./knowledge/` not `~/.cache/`
+2. **Use local output directory**: `~/knowledge/` not `~/.cache/`
 3. **Connect to project context**: Relate paper content to current project
-4. **Generate useful tags**: Choose descriptive tags for summarization
+4. **Tag management required**: Always check claude-mem before adding tags
+5. **Obsidian-native output**: All summaries use Obsidian format (frontmatter + callouts)
+

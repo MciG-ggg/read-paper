@@ -9,9 +9,15 @@ Save summary to:
 ~/knowledge/summary_{tag}.md
 ```
 
-**Important**: Use local project directory (`~/knowledge/`), not `~/.cache/`, and not `~/Documents/knowledge`, pls notice that the `~` is the home directory.
+**Important**: Use local project directory (`~/Documents/obsidian/80-paper/
+`), not `~/.cache/`, and not , pls notice that the `~` is the home directory.
 
 ## Tag Selection
+
+> [!important] Tag Management Required
+> Before adding tags, you **must** check claude-mem for existing tags.
+> See [obsidian-output.md](obsidian-output.md) for the complete tag management workflow.
+
 
 Choose a descriptive tag that:
 - Relates to the paper's main topic
@@ -28,49 +34,69 @@ Choose a descriptive tag that:
 
 ## Summary Structure
 
-### Recommended Format
+### Recommended Format (Obsidian Native)
 
 ```markdown
+---
+title: {Paper Title}
+date: {YYYY-MM-DD}
+tags:
+  - {tag1}
+  - {tag2}
+aliases:
+  - {Paper Title}
+  - arXiv:{id}
+---
+
 # {Paper Title}
 
-**arXiv ID**: {id}
-**Authors**: {authors}
-**Date**: {publication_date}
+> [!info]- Metadata
+> - **arXiv**: [{id}](https://arxiv.org/abs/{id})
+> - **Authors**: {authors}
+> - **Date**: {publication_date}
 
 ## Abstract
 
-{Brief summary of the paper's main contribution}
+> [!abstract]+
+> {Brief summary of the paper's main contribution}
 
 ## Key Findings
 
-- Finding 1
-- Finding 2
-- Finding 3
+> [!key-findings]-
+> - Finding 1
+> - Finding 2
+> - Finding 3
 
 ## Technical Details
 
 ### Method
 
-{Description of the proposed method}
+> [!method]+
+> {Description of the proposed method}
 
 ### Results
 
-{Key experimental results}
+> [!results]
+> {Key experimental results}
 
 ## Relevance to Project
 
-{Connection to current project context}
+> [!tip]
+> {Connection to current project context}
 
 ## Potential Applications
 
-- Application 1
-- Application 2
+> [!example]
+> - Application 1
+> - Application 2
 
 ## Questions/Follow-ups
 
-- Question 1
-- Question 2
+> [!question]
+> - Question 1
+> - Question 2
 ```
+
 
 ## Quality Guidelines
 
@@ -114,5 +140,10 @@ Before finalizing:
 - [ ] Key findings captured?
 - [ ] Methodology explained?
 - [ ] Project connection clear?
-- [ ] Tag is unique?
+- [ ] Tags checked against claude-mem?
+- [ ] New tags saved to claude-mem?
 - [ ] File saved to correct location?
+
+## Obsidian Output
+
+The output format is now Obsidian-native by default (frontmatter + callouts). See [obsidian-output.md](obsidian-output.md) for advanced tag management.
