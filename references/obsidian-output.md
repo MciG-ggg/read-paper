@@ -4,14 +4,9 @@ This guide explains how to generate Obsidian-compatible markdown files with prop
 
 ## Output Location
 
-Save Obsidian notes to:
+Directly to your Obsidian vault:
 ```
-~/knowledge/papers/{tag}/{date}_{title}.md
-```
-
-Or directly to your Obsidian vault:
-```
-~/Documents/vault/papers/{tag}/{date}_{title}.md
+~/Documents/obsidian/80-paper/
 ```
 
 ## Tag Management Workflow
@@ -28,7 +23,7 @@ Based on paper content, generate 2-4 candidate tags:
 **Before adding any tag**, search claude-mem to check if similar tags exist:
 
 ```python
-# Use mem-search tool
+# Use claude-mem mem-search tool
 search(query="{candidate_tag}", limit=10, project="paper-tags")
 ```
 
@@ -41,6 +36,18 @@ search(query="{candidate_tag}", limit=10, project="paper-tags")
 **If no similar tag found**:
 - Create new tag
 - Save to claude-mem after adding to document
+
+#### !!!Attention
+
+the tags' structural should follow the architecture below:`Paper/{big tag}/{small tag}/{small small tag} ...`
+which the tag in the front represent a bigger concept, and the tag behind represent a concrete concept.
+
+for some examples:
+tags
+- Paper/rl/multiagent
+- Paper/sim2real
+- Paper/EmbodiedAI/VLA
+- Paper/EmbodiedAI/VLN 
 
 ### Step 4: Save New Tag to claude-mem (If Created)
 

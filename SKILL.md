@@ -70,7 +70,7 @@ Then follow the text extraction workflow.
 ### Step 3: Generate Summary
 
 
-Output to `~/knowledge/summary_{tag}.md` in Obsidian-native format (frontmatter + callouts).
+Output to `~/Documents/obsidian/80-paper/summary_{tag}.md` in Obsidian-native format (frontmatter + callouts).
 
 ## Detailed Guides
 
@@ -80,14 +80,14 @@ For detailed processing instructions, see:
 |-------|---------|
 | [arxiv.md](references/arxiv.md) | arXiv TeX source download, parsing, analysis |
 | [pdf.md](references/pdf.md) | PDF text extraction, table extraction |
-| [summarization.md](references/summarization.md) | Obsidian-native summary format (frontmatter + callouts), tag selection, quality guidelines |
+| [summarization.md](references/summarization.md) | Obsidian-native summary format (frontmatter + callouts), tag selection, **Mermaid diagrams for architectures**, quality guidelines |
 | [obsidian-output.md](references/obsidian-output.md) | Obsidian format, tag management, claude-mem integration |
 
 
 ## Key Principles
 
 1. **Cache downloaded content**: Store in `~/.cache/nanochat/knowledge/{paper_id}/`
-2. **Use local output directory**: `~/knowledge/` not `~/.cache/`
+2. **Use local output directory**: `~/Documents/obsidian/80-paper/` not `~/.cache/`
 3. **Connect to project context**: Relate paper content to current project
 4. **Tag management required**: Always check claude-mem before adding tags
 5. **Obsidian-native output**: All summaries use Obsidian format (frontmatter + callouts)

@@ -60,6 +60,12 @@ aliases:
 > [!abstract]+
 > {Brief summary of the paper's main contribution}
 
+## Solved problems
+
+> !problems+
+> {Brief summary of the problems which the paper solved}
+
+
 ## Key Findings
 
 > [!key-findings]-
@@ -78,6 +84,40 @@ aliases:
 
 > [!results]
 > {Key experimental results}
+
+### Architecture Diagrams
+
+If the paper describes system architectures, pipelines, or component relationships that benefit from visual representation:
+
+> [!tip] Use mermaid-diagrams skill
+> When the paper contains architecture diagrams, pipelines, or complex component relationships, invoke the **mermaid-diagrams** skill to generate proper Mermaid syntax.
+>
+> **When to use:**
+> - System architecture diagrams
+> - Data flow pipelines
+> - Model training workflows
+> - Component interaction diagrams
+> - State machines or process flows
+>
+> **How to invoke:**
+> ```
+> Skill: mermaid-diagrams
+> ```
+> Then describe the architecture you need to diagram based on the paper's content.
+
+**Example - Adding a Mermaid diagram in Obsidian:**
+
+```markdown
+## System Architecture
+
+```mermaid
+flowchart LR
+    A[Input] --> B[Encoder]
+    B --> C[Attention]
+    C --> D[Decoder]
+    D --> E[Output]
+```
+```
 
 ## Relevance to Project
 
